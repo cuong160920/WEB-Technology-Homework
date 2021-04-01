@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Register Form</title>
+</head>
+<body>
+    <form id="registerForm">
+        
+            <div class="myForm">
+                <span>Username: </span>
+                <input type="text" name="username" id="username" onkeyup="validateUsername()">        
+            </div>
+            <div class="myForm">
+                <span>Email: </span>
+                <input type="text" name="email" id="email" onkeyup="validateEmail()">
+            </div>
+            <div class="myForm">
+                <span>Telephone: </span>
+                <input type="text" name="telephone", id="telephone" onkeyup="validateTelephone()">
+            </div>
+            <div class="div-button">
+                <input type="button" class="btn btn-primary" value="Submit" onclick="notification()">
+            </div>
+    </form>
+    </div>
+</body>
+
+<script type="text/javascript">
+    const myForm = document.getElementById('registerForm');
+    let message = "";
+    let messUser = "";
+    let messEmail = "";
+    let messTele = "";
+    
+    var validateUsername = () => {
+        var usernameCheck = new RegExp(/^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i);
+        if(usernameCheck.test(myForm.username.value)) {
+            // let div = document.createElement('div');
+            // let strong = document.createElement('strong');
+            // strong.innerText = "Valid Username";
+            // div.classList.add('alert')
+            // div.classList.add('alert-success')
+            // div.append(strong);
+
+            // mess.append(div)
+            $('#username').css('background-color', 'greenyellow');
+            messUser = "";
+        } else {
+            $('#username').css('background-color', 'red');
+            messUser = "Invalid Username!";
+        }
+    }
+
+    var validateEmail = () => {
+        var emailCheck = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+        
+        if(emailCheck.test(myForm.email.value)) {
+            $('#email').css('background-color', 'greenyellow');
+            messEmail = "";
+        } else {
+            $('#email').css('background-color', 'red');
+            messEmail = "Invalid Email!";
+        }
+    }
+    var validateTelephone = () => {
+        var telephoneCheck = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
+        
+        if(telephoneCheck.test(myForm.telephone.value)) {
+            $('#telephone').css('background-color', 'greenyellow');
+            messTele = "";
+        } else {
+            $('#telephone').css('background-color', 'red');
+            messTele = "Invalid Telephone!" ;
+        }
+        console.log(messTele);
+    }
+
+    var notification = () => {
+        if(messUser != "" ) {
+            message += messUser + "\n";
+        }
+        if(messEmail != "" ) {
+            message += messEmail + "\n";
+        }
+        if(messTele != "" ) {
+            message += messTele + "\n";
+        }
+
+        if(message == "") {
+            message = "Valid infomation!!!";
+            alert(message);
+            message = "";
+        } else {
+            message += "Please refill your infomation!!";
+            alert(message)
+            message = "";
+        }
+    };
+
+</script>
+</html>
