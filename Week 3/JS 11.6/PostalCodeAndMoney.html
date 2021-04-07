@@ -20,7 +20,7 @@
 
     function validatePostalCode() {
         // var myForm = document.getElementById('myForm');
-        var postalCodeCheck = new RegExp("([A-Z][0-9])(3,3)")
+        var postalCodeCheck = new RegExp("([A-Z][0-9]){3,3}")
         if(postalCodeCheck.test(myForm.postalCodeField.value)) {
             alert("Valid Postal Code");
             return true;
