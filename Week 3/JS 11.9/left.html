@@ -64,15 +64,16 @@
         }
 
         function displayData() {
-            document.getElementById("c1").innerHTML = getCookie("name");
+            document.getElementById("c1").innerHTML = getCookie("title");
             document.getElementById("c2").innerHTML = getCookie("author");
             document.getElementById("c3").innerHTML = getCookie("content");
         }
     </script>
-    <h1>BLOG!</h1>
-    <!-- <button onclick="displayData()">Click here!</button><br> -->
+
+    <h1>MY BLOG</h1>
+
     <div class="content">
-        <div class="line-content"><span id="name">Blog's name: </span>
+        <div class="line-content"><span id="title">Title: </span>
             <p id="c1"></p>
         </div>
         <div class="line-content"><span id="author">Author: </span>

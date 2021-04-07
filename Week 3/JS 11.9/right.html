@@ -62,19 +62,19 @@
 </head>
 
 <body>
-    <h1>POST BLOG!</h1>
+    <h1>POST BLOG</h1>
     <form action="" method="POST">
         <div class="form-child">
-            <label>Blog's name: </label>
-            <input type="text" placeholder="name" id="name" border="none" >
+            <label>Title: </label>
+            <input type="text" placeholder="Enter Title" id="title" border="none" >
         </div>
         <div class="form-child">
             <label>Author: </label>
-            <input type="text" placeholder="author" id="author">
+            <input type="text" placeholder="Enter Author" id="author">
         </div>
         <div class="form-child">
             <label>Content: </label>
-            <textarea name="" id="content" cols="30" rows="10" autofocus></textarea>
+            <textarea name="" placeholder="Enter Content" id="content" cols="30" rows="10"></textarea>
         </div>
         <input id="button" type="button" value="Add blog" onclick="addBlog()">
     </form>
@@ -83,13 +83,13 @@
 
 
         function addBlog() {
-            var name = document.getElementById("name").value;
+            var title = document.getElementById("title").value;
             var author = document.getElementById("author").value;
             var content = document.getElementById("content").value;
-            var d = new Date();
-            d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = "name=" + name + ";" + expires;
+            var date = new Date();
+            date.setTime(date.getTime() + (24 * 60 * 60 * 1000));
+            var expires = "expires=" + date.toUTCString();
+            document.cookie = "title=" + title + ";" + expires;
             document.cookie = "author=" + author + ";" + expires;
             document.cookie = "content=" + content + ";" + expires;
             window.parent.location.reload();
