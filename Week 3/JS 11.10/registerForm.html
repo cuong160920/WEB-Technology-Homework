@@ -34,7 +34,7 @@
 
     <div class="div-button">
       <input type="button" class="btn" value="Submit" onclick="notification()">
-      <input type="reset" class="btn" value="Erase and Restart">
+      <input type="reset" class="btn" value="Erase and Restart" onclick="reload()">
     </div>
   </form>
   </div>
@@ -50,11 +50,12 @@
   var validateUsername = () => {
     var usernameCheck = new RegExp(/^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i);
     if (usernameCheck.test(myForm.username.value)) {
-      // document.querySelector('user').style.border = '2px solid #01DF3A';
-      $('.user').css('border', '2px solid #01DF3A');
+      document.querySelector('.user').style.border = '2px solid #01DF3A';
+      // $('.user').css('border', '2px solid #01DF3A');
       messUser = "";
     } else {
-      $('.user').css('border', '2px solid red');
+      document.querySelector('.user').style.border = '2px solid red';
+      // $('.user').css('border', '2px solid red');
       messUser = "Invalid Username!";
     }
   }
@@ -63,10 +64,12 @@
     var emailCheck = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
     if (emailCheck.test(myForm.email.value)) {
-      $('.email').css('border', '2px solid #01DF3A');
+      document.querySelector('.email').style.border = '2px solid #01DF3A';
+      // $('.email').css('border', '2px solid #01DF3A');
       messEmail = "";
     } else {
-      $('.email').css('border', '2px solid red');
+      document.querySelector('.email').style.border = '2px solid red';
+      // $('.email').css('border', '2px solid red');
       messEmail = "Invalid Email!";
     }
   }
@@ -74,10 +77,12 @@
     var telephoneCheck = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
 
     if (telephoneCheck.test(myForm.telephone.value)) {
-      $('.telephone').css('border', '2px solid #01DF3A');
+      document.querySelector('.telephone').style.border = '2px solid #01DF3A';
+      // $('.telephone').css('border', '2px solid #01DF3A');
       messTele = "";
     } else {
-      $('.telephone').css('border', '2px solid red');
+      document.querySelector('.telephone').style.border = '2px solid red';
+      // $('.telephone').css('border', '2px solid red');
       messTele = "Invalid Telephone!";
     }
     console.log(messTele);
@@ -104,6 +109,10 @@
       message = "";
     }
   };
+
+  var reload = () => {
+    window.parent.location.reload();
+  }
 
 </script>
 
