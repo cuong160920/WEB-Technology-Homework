@@ -6,4 +6,4 @@
 
     require_once (ROOT.DS.'config' . DS .'bootstrap.php');
     require_one (ROOT.DS.'library' . DS .'shared.php');
-    
+?>

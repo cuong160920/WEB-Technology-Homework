@@ -26,3 +26,4 @@
             $this->_template->render();
         }
     }
+?>

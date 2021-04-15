@@ -79,4 +79,5 @@
     removeMagicQuoctes();
     unregisterGlobals();
     callHook();
+?>
 
