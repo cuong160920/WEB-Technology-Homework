@@ -12,10 +12,6 @@
             $this->_action = $action;
             $this->_model = $model;
 
-            $this->$model = &amp; 
-            new $model;
-            $this->_template = &amp;
-            new Template($controller, $action);
         }
 
         function set($name, $value) {

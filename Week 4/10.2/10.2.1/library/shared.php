@@ -1,7 +1,7 @@
 <?php
 
     function setReporting() {
-        if(DEVELOPMENT_ENVIROMENT == true) {
+        if(DEVELOPMENT_ENVIRONMENT == true) {
             error_reporting(E_ALL);
             ini_set('display_errors', 'On');
         } else {
@@ -19,7 +19,7 @@
     }
 
     function removeMagicQuoctes() {
-        if(get_magic_quotes_gpc()) {
+        if(true) {
             $_GET = stripSlashesDeep($_GET);
             $_POST = stripSlashesDeep($_POST);
             $_COOKIE = stripSlashesDeep($_COOKIE);
@@ -52,7 +52,7 @@
         $queryString = $urlArray;
 
         $controllerName = $controller;
-        $controller = ucworks($controller);
+        $controller = ucwords($controller);
         $model = rtrim($controller, 's');
         $controller .= 'Controller';
         $dispatch = new $controller($model, $controllerName, $action);
@@ -65,7 +65,7 @@
     }
 
     function __autoload($className) {
-        if (file_exits(ROOT.DS.'library'.DS.strtolower($className).'.class.php')) {
+        if (file_exists(ROOT.DS.'library'.DS.strtolower($className).'.class.php')) {
             require_once(ROOT.DS.'library'.DS.strtolower($className).'.class.php');
         } else if (file_exists(ROOT.DS.'application'.DS.'controllers'.DS.strtolower($className).'.php')) {
             require_once(ROOT.DS.'application'.DS.'application'.DS.'controler'.DS.strtolower($className).'.php');
