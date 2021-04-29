@@ -80,3 +80,4 @@
     unregisterGlobals();
     callHook();
 
+?>
